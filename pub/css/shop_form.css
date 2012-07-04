@@ -1,0 +1,25 @@
+.shop-form {
+}
+
+.shop-form h2 {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.shop-form .product-box {
+    height: 45px;
+    padding: 4px;
+    border-bottom: 1px dashed #CCCCCC;
+    margin-bottom: 5px;
+}
+
+
+.shop-form .product-box img {
+    float: left;
+    margin-right: 5px;
+}
+
+
+.shop-form h1 {
+    margin-bottom: 10px;
+}

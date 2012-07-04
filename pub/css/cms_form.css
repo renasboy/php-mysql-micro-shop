@@ -1,0 +1,43 @@
+.cms-form {
+}
+
+.cms-form section {
+    margin-bottom: 7px;
+    border-bottom: 1px dotted #CCCCCC;
+}
+
+.cms-form .management {
+    padding-bottom: 7px;
+}
+
+.cms-form h1 {
+    margin-bottom: 10px;
+    color: #0055CC;
+}
+
+.cms-form h2 {
+    margin-top: 20px;
+    color: #0088CC;
+}
+
+.cms-form .list {
+    width: 300px;
+}
+
+.cms-form .list img {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #CCCCCC;
+}
+
+.cms-form .list img:hover {
+    border: 1px solid #cc0000;
+}
+
+.cms-form .list img {
+    margin: 9px;
+}
+
+.cms-form .cms-shop .shop article {
+    border-top: 1px dashed #CCCCCC;
+}

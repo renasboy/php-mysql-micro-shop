@@ -1,0 +1,24 @@
+.product-box {
+    height: 82px;
+}
+
+.product-box h1 {
+    height: 35px; 
+}
+
+.product-box img {
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-right: 7px;
+    border: 1px solid #CCCCCC;
+}
+
+.product-box span {
+    display: block;
+    color: #AAAAAA;
+}
+
+.product-box .price {
+    float: right;
+}

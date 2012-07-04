@@ -1,0 +1,24 @@
+.category-box {
+    height: 82px;
+}
+
+.category-box h1 {
+    height: 35px; 
+}
+
+.category-box img {
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-right: 7px;
+    border: 1px solid #CCCCCC;
+}
+
+.category-box span {
+    display: block;
+    color: #AAAAAA;
+}
+
+.category-box .price {
+    float: right;
+}

@@ -1,0 +1,22 @@
+body {
+    padding-bottom: 40px;
+}
+
+footer {
+    background-color: #000000;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 7px 0px;
+    color: #FFFFFF;
+    z-index: 999;
+}
+
+footer div {
+    padding: 0px 7px;
+}
+
+footer .admin {
+    float: right;
+}

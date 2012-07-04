@@ -1,0 +1,23 @@
+.product-detail article img {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 7px;
+    border: 1px solid #CCCCCC;
+}
+
+.product-detail article h1 {
+    font-size: 15pt;
+    line-height: 16pt;
+    margin-bottom: 7px;
+}
+
+.product-detail article span { 
+    display: block; 
+    color: #AAAAAA;
+    font-size: 11pt;
+    margin-bottom: 7px;
+}
+
+.product-detail .price {
+    float: right;
+}

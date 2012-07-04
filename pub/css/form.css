@@ -1,0 +1,61 @@
+form {
+}
+
+form fieldset {
+    border-top: 1px dotted #AAAAAA;
+    margin-top: 10px;
+}
+
+form fieldset:first-child {
+    margin: 0px;
+    border: 0px;
+}
+
+form input,
+form select,
+form textarea {
+    width: 290px;
+    padding: 2px 4px;
+    border: 1px solid #CCCCCC;
+}
+
+form select {
+    width: 300px;
+}
+
+form fieldset > div {
+    margin-top: 10px;
+}
+
+form fieldset > div:first-child {
+    margin: 0px;
+}
+
+form fieldset > div > img {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #CCCCCC;
+    display: block;
+    float: left;
+    margin-right: 7px;
+}
+
+form .buttons {
+    margin-top: 20px;
+    text-align: right;
+}
+
+form input[type=file] {
+    position: absolute;
+    opacity: 0;
+    height: 30px;
+    cursor: pointer;
+    z-index: 100;
+    width: 100px;
+    top: 0px;
+    left: 90px;
+}
+
+form fieldset div {
+    position: relative;
+}
