@@ -15,6 +15,7 @@ vim etc/api.dev.ini
 # db conf is mainly host, user and pass
 #
 ln -sf api.dev.ini etc/api.ini
+ln -sf ../api/lib .
 ./bin/make
 
 cd ..
@@ -30,12 +31,15 @@ vim etc/app.dev.ini
 # hosts also contains the cdn hosts for the image server
 #
 ln -sf app.dev.ini etc/app.ini
+ln -sf ../app/lib .
 ./bin/make
 
 cd ..
 
 #
 # now point apache doc_root to the shop/pub and enable .htaccess file
+# in order to see images from cdn install the micro-cdn project, that
+# is a simple apache virtual host with a rewrite rule for the image server.
 #
 
 --
@@ -67,27 +71,37 @@ cd ..
 
     $ ln -sf api.dev.ini etc/api.ini
 
-7. execute bin/make in the shop-api
+7. make the link to the framework api in use
+
+    $ ln -sf ../api/lib .
+
+8. execute bin/make in the shop-api
     
     $ ./bin/make
 
-8. clone the shop repo
+9. clone the shop repo
 
     $ git clone https://github.com/renasboy/php-mysql-micro-shop shop
 
-9. update the shop configuration file etc/app.dev.ini
+10. update the shop configuration file etc/app.dev.ini
 
     $ cd shop
     $ vim etc/app.dev.ini
 
-10. make the link to the configuration file in use
+11. make the link to the configuration file in use
 
     $ ln -sf app.dev.ini etc/app.ini
 
-11. execute bin/make in the shop
+12. make the link to the framework in use
+
+    $ ln -sf ../app/lib .
+
+13. execute bin/make in the shop
     
     $ ./bin/make
 
-12. you are done !!
+14. you are done !!
 
     Point apache document root to the shop/pub directory and enable .htaccess
+    in order to see images from cdn install the micro-cdn project, that
+    is a simple apache virtual host with a rewrite rule for the image server.
