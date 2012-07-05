@@ -17,6 +17,7 @@ vim etc/api.dev.ini
 ln -sf api.dev.ini etc/api.ini
 ln -sf ../api/lib .
 ./bin/make
+./bin/db
 
 cd ..
 
@@ -79,28 +80,32 @@ cd ..
     
     $ ./bin/make
 
-9. clone the shop repo
+9. install the database structure, schema found inside data/ directory.
+
+    $ ./bin/db
+
+10. clone the shop repo
 
     $ git clone https://github.com/renasboy/php-mysql-micro-shop shop
 
-10. update the shop configuration file etc/app.dev.ini
+11. update the shop configuration file etc/app.dev.ini
 
     $ cd shop
     $ vim etc/app.dev.ini
 
-11. make the link to the configuration file in use
+12. make the link to the configuration file in use
 
     $ ln -sf app.dev.ini etc/app.ini
 
-12. make the link to the framework in use
+13. make the link to the framework in use
 
     $ ln -sf ../app/lib .
 
-13. execute bin/make in the shop
+14. execute bin/make in the shop
     
     $ ./bin/make
 
-14. you are done !!
+15. you are done !!
 
     Point apache document root to the shop/pub directory and enable .htaccess
     in order to see images from cdn install the micro-cdn project, that
