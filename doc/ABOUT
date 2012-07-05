@@ -1,6 +1,4 @@
 This is the ABOUT file.
-=======================
-
 This file describes this example project.
 
 This example project is simple web shop with following features.
@@ -15,4 +13,4 @@ This example project is simple web shop with following features.
 - thankyout page
 - orders get saved and can be seen in the CMS
 
-This project is a simple example for the [core](php-mysql-micro-framework-core/blob/master/), [api](php-mysql-micro-framework-api/blob/master/) and [app](php-mysql-micro-framework/blob/master/) micro framework.
+This project is a simple example for the core, api and app micro framework.
