@@ -1,0 +1,10 @@
+This is the ABOUT file.
+This file describes this example project.
+
+This example project is simple shop API with following resources.
+
+- category (product category)
+- product (the products)
+- shop (the order with products and customer info)
+
+This example project is better used in combination with the [shop app](php-mysql-micro-shop).

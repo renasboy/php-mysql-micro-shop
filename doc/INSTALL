@@ -1,0 +1,93 @@
+This is the INSTALL file.
+For explanation of steps see bellow.
+
+* Quickstart:
+
+git clone https://github.com/renasboy/php-mysql-micro-framework-core core
+git clone https://github.com/renasboy/php-mysql-micro-framework-api api
+git clone https://github.com/renasboy/php-mysql-micro-framework app
+git clone https://github.com/renasboy/php-mysql-micro-shop-api shop-api
+cd shop-api
+vim etc/api.dev.ini
+#
+# here change the core_root and db conf 
+# core_root should point to the core repo cloned above
+# db conf is mainly host, user and pass
+#
+ln -sf api.dev.ini etc/api.ini
+./bin/make
+
+cd ..
+
+git clone https://github.com/renasboy/php-mysql-micro-shop shop
+cd shop
+vim etc/app.dev.ini
+#
+# here change the core_root, api_root and hosts
+# core_root should point to the core repo cloned above
+# api_root should point to the shop-api repo cloned above
+# hosts are used to compose urls and links by the application
+# hosts also contains the cdn hosts for the image server
+#
+ln -sf app.dev.ini etc/app.ini
+./bin/make
+
+cd ..
+
+#
+# now point apache doc_root to the shop/pub and enable .htaccess file
+#
+
+--
+
+* Full installation steps are:
+
+1. clone the core repo (dependency)
+
+    $ git clone https://github.com/renasboy/php-mysql-micro-framework-core core
+
+2. clone the api repo (dependency)
+
+    $ git clone https://github.com/renasboy/php-mysql-micro-framework-api api
+
+3. clone the app repo (dependency)
+
+    $ git clone https://github.com/renasboy/php-mysql-micro-framework app
+
+4. clone the shop api repo (dependency)
+
+    $ git clone https://github.com/renasboy/php-mysql-micro-shop-api shop-api
+
+5. update the shop-api configuration file etc/api.dev.ini
+
+    $ cd shop-api
+    $ vim etc/api.dev.ini
+
+6. make the link to the configuration file in use
+
+    $ ln -sf api.dev.ini etc/api.ini
+
+7. execute bin/make in the shop-api
+    
+    $ ./bin/make
+
+8. clone the shop repo
+
+    $ git clone https://github.com/renasboy/php-mysql-micro-shop shop
+
+9. update the shop configuration file etc/app.dev.ini
+
+    $ cd shop
+    $ vim etc/app.dev.ini
+
+10. make the link to the configuration file in use
+
+    $ ln -sf app.dev.ini etc/app.ini
+
+11. execute bin/make in the shop
+    
+    $ ./bin/make
+
+12. you are done !!
+
+    Point apache document root to the shop/pub directory and enable .htaccess
