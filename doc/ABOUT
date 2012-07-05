@@ -1,10 +1,16 @@
 This is the ABOUT file.
 This file describes this example project.
 
-This example project is simple shop API with following resources.
+This example project is simple web shop with following features.
 
-- category (product category)
-- product (the products)
-- shop (the order with products and customer info)
+- simple CMS for adding and deleting categories and products
+- home page with categories
+- categories page with list of products
+- product detail page
+- adding and removing products to cart
+- cart page
+- checkout form page
+- thankyout page
+- orders get saved and can be seen in the CMS
 
-This example project is better used in combination with the [shop app](php-mysql-micro-shop).
+This project is a simple example for the [core](php-mysql-micro-framework-core/blob/master/), [api](php-mysql-micro-framework-api/blob/master/) and [app](php-mysql-micro-framework/blob/master/) micro framework.
