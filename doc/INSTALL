@@ -1,6 +1,14 @@
 This is the INSTALL file.
 For explanation of steps see bellow.
 
+* Quick Quick Quick Start in a single command:
+
+bash <(wget -q -O - https://raw.github.com/renasboy/php-mysql-micro-shop/master/bin/install) DIRECTORY_TO_INSTALL
+
+Where DIRECTORY_TO_INSTALL is the location where the application will be installed.
+
+--
+
 * Quickstart:
 
 git clone https://github.com/renasboy/php-mysql-micro-framework-core core
