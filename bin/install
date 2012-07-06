@@ -31,9 +31,9 @@ cd $dir/shop-api
 
 echo ASK FOR VALUES
 read -p "Database user (to create db) [Default: root]: " db_user
-read -s -p "Database pass: [Default: empty]" db_pass
+read -s -p "Database pass [Default: empty]: " db_pass
 echo
-read -p "Database name (will be removed first): [Default: micro_shop]" db_name
+read -p "Database name (will be removed first) [Default: micro_shop]: " db_name
 
 echo REPLACE VALUES
 sed -i \
@@ -67,11 +67,11 @@ echo REPLACE VALUES
 sed -i \
     -e 's@^core_root=.*$@core_root='$dir'/core@' \
     -e 's@^api_root=.*$@api_root='$dir'/api@' \
-    -e 's@^base_host=.*$@base_host='${base_host:-micro_shop.$host}'@' \
-    -e 's@^cdn1_host=.*$@cdn1_host='${cdn1_host:-cdn1.$host}'@' \
-    -e 's@^cdn2_host=.*$@cdn2_host='${cdn2_host:-cdn2.$host}'@' \
-    -e 's@^cdn3_host=.*$@cdn3_host='${cdn3_host:-cdn3.$host}'@' \
-    -e 's@^cdn4_host=.*$@cdn4_host='${cdn4_host:-cdn4.$host}'@' etc/app.dev.ini
+    -e 's@^base_host=.*$@base_host='${base_host:=micro_shop.$host}'@' \
+    -e 's@^cdn1_host=.*$@cdn1_host='${cdn1_host:=cdn1.$host}'@' \
+    -e 's@^cdn2_host=.*$@cdn2_host='${cdn2_host:=cdn2.$host}'@' \
+    -e 's@^cdn3_host=.*$@cdn3_host='${cdn3_host:=cdn3.$host}'@' \
+    -e 's@^cdn4_host=.*$@cdn4_host='${cdn4_host:=cdn4.$host}'@' etc/app.dev.ini
 
 ln -sf app.dev.ini etc/app.ini
 ln -sf ../app/lib .
@@ -80,6 +80,53 @@ echo MAKE APP
 ./bin/make
 
 cd $dir
-echo CONF APACHE
-echo CONF CDN
-echo DONE
+
+
+echo "
+============================
+THE INSTALLATION IS COMPLETE
+============================
+
+Now setup the virtual host under apache as follows
+
+# CDN VIRTUALHOST
+<VirtualHost *:80>
+    DocumentRoot \"$dir/shop/pub/cache\"
+    ServerName $cdn1_host
+    ServerAlias $cdn2_host
+    ServerAlias $cdn3_host
+    ServerAlias $cdn4_host
+    ErrorLog \"logs/cdn-error_log\"
+    CustomLog \"logs/cdn-access_log\" common
+
+    <Directory \"$dir/shop/pub/cache\">
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Order allow,deny
+        Allow from all
+
+        RewriteEngine On
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteRule ^(.*)$ http://$base_host/img/\$1 [L,P]
+    </Directory>
+</VirtualHost>
+
+# MICRO SHOP VIRTUALHOST
+<VirtualHost *:80>
+    DocumentRoot \"$dir/shop/pub\"
+    ServerName $base_host
+    ErrorLog \"logs/shop-error_log\"
+    CustomLog \"logs/shop-access_log\" common
+
+    <directory \"$dir/shop/pub\">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Order Allow,Deny
+        Allow from all
+    </directory>
+</VirtualHost>
+
+============================
+THE INSTALLATION IS COMPLETE
+============================
+"
